@@ -26,7 +26,7 @@ app.post('/', async (req, res) => {
     
     const prompt = req.body.prompt;
 
-    
+    console.log(prompt)
 
     const response = await openai.createCompletion({
       model: "text-davinci-003",
@@ -39,7 +39,7 @@ app.post('/', async (req, res) => {
     });
 
     //await new Promise(resolve => setTimeout(resolve, 5000));
-    console.log(response.data.choices[0].text)
+    //console.log(response.data.choices[0].text)
 
     res.status(200).send({
       bot: response.data.choices[0].text
