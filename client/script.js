@@ -92,7 +92,7 @@ window.onload = async (event) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    prompt: 'Ask me what language to speak'
+                    prompt: 'Ask me in which language I want to speak'
                 })
             })
 
