@@ -6,6 +6,7 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 
+/*
 window.onload = async (event) => {
 
     var delayInMilliseconds = 1000; //1 second
@@ -61,12 +62,12 @@ window.onload = async (event) => {
         console.error(error);
     }
 
-    /*
+    
     setTimeout(function() {
 
-    }, delayInMilliseconds);*/
+    }, delayInMilliseconds);
     
-};
+}; */
 
 function loader(element) {
     element.textContent = ''
