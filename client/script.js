@@ -63,7 +63,7 @@ window.onload = async (event) => {
         console.error(error);
     }
     
-    setTimeout(function() {
+    setTimeout(async function() {
         form.reset()
 
         // bot's chatstripe
@@ -77,10 +77,10 @@ window.onload = async (event) => {
         messageDiv = document.getElementById(uniqueId)
 
         // messageDiv.innerHTML = "..."
-        loader(messageDiv)
+        //loader(messageDiv)
 
         try {
-            const response = fetch('https://uanamaai.onrender.com', {
+            const response = await fetch('https://uanamaai.onrender.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,12 +96,12 @@ window.onload = async (event) => {
             messageDiv.innerHTML = " "
 
             if (response.ok) {
-                const data = response.json();
+                const data = await response.json();
                 const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
                 typeText(messageDiv, parsedData)
             } else {
-                const err = response.text()
+                const err = await response.text()
 
                 messageDiv.innerHTML = "Something went wrong"
                 alert(err)
