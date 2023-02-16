@@ -119,7 +119,7 @@ form {
   margin: 0 auto;
   padding: 10px;
   background: #131313;
-  border-radius: 5px;
+  border-radius: 15px;
   display: flex;
   flex-direction: row;
 }
