@@ -6,10 +6,11 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 
-/*
+
 window.onload = async (event) => {
 
     var delayInMilliseconds = 1000; //1 second
+
     const data = new FormData(form)
 
     // user's chatstripe
@@ -38,7 +39,7 @@ window.onload = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: 'Scrivi Ciao'
+                prompt: 'Scrivi ciao'
             })
         })
 
@@ -61,13 +62,12 @@ window.onload = async (event) => {
     } catch (error) {
         console.error(error);
     }
-
-    
+    /*
     setTimeout(function() {
 
     }, delayInMilliseconds);
-    
-}; */
+    */
+}; 
 
 function loader(element) {
     element.textContent = ''
