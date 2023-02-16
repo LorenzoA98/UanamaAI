@@ -31,7 +31,7 @@ window.onload = (event) => {
     loader(messageDiv)
 
     try {
-        const response = await fetch('https://uanamaai.onrender.com', {
+        const response = fetch('https://uanamaai.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,12 +47,12 @@ window.onload = (event) => {
         messageDiv.innerHTML = " "
 
         if (response.ok) {
-            const data = await response.json();
+            const data = response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
             typeText(messageDiv, parsedData)
         } else {
-            const err = await response.text()
+            const err = response.text()
 
             messageDiv.innerHTML = "Something went wrong"
             alert(err)
