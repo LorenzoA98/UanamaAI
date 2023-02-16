@@ -25,10 +25,10 @@ window.onload = async (event) => {
     //chatContainer.scrollTop = chatContainer.scrollHeight;
 
     // specific message div 
-    const messageDiv = document.getElementById(uniqueId)
+    //const messageDiv = document.getElementById(uniqueId)
 
     // messageDiv.innerHTML = "..."
-    loader(messageDiv)
+    //loader(messageDiv)
 
     try {
         const response = await fetch('https://uanamaai.onrender.com', {
