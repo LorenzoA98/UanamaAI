@@ -117,10 +117,9 @@ form {
   width: 100%;
   position: fixed;
   max-width: 1280px;
-  margin: 10px auto;
+  margin-bottom: 5px;
   padding: 0;
   overflow: hidden;
-  bottom: 0;
   background: #131313;
   border-radius: 10px;
 }
