@@ -5,11 +5,12 @@ const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
+let inTypeTest = false
 
 
 window.onload = async (event) => {
 
-    var delayInMilliseconds = 1000; //1 second
+    var delayInMilliseconds = 100; //1 second
 
     const data = new FormData(form)
 
@@ -61,6 +62,10 @@ window.onload = async (event) => {
         }
     } catch (error) {
         console.error(error);
+    }
+
+    while (inTypeTest) {
+        await delay(100);
     }
 
     setTimeout(async function() {
@@ -138,9 +143,11 @@ function typeText(element, text) {
 
     let interval = setInterval(() => {
         if (index < text.length) {
+            inTypeTest = true
             element.innerHTML += text.charAt(index)
             index++
         } else {
+            inTypeTest = false
             clearInterval(interval)
         }
     }, 20)
