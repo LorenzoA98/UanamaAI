@@ -9,7 +9,7 @@ let loadInterval
 
 window.onload = async (event) => {
 
-    var delayInMilliseconds = 5000; //1 second
+    var delayInMilliseconds = 1000; //1 second
 
     const data = new FormData(form)
 
@@ -39,7 +39,7 @@ window.onload = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: 'Scrivi ciao'
+                prompt: 'Write Hi'
             })
         })
 
@@ -92,7 +92,7 @@ window.onload = async (event) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    prompt: 'Scrivi ciao'
+                    prompt: 'Ask me what language to speak'
                 })
             })
 
