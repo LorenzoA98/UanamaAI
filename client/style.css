@@ -120,6 +120,8 @@ form {
   padding: 10px;
   background: #131313;
   border-radius: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
   bottom: 0;
   display: flex;
   flex-direction: row;
