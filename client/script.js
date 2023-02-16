@@ -64,51 +64,72 @@ window.onload = async (event) => {
     }
     await delay(5000);
     //setTimeout(async function() {
-        data = new FormData(form)
-        form.reset()
-
-        // bot's chatstripe
-        uniqueId = generateUniqueId()
-        chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
-
-        // to focus scroll to the bottom 
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-
-        // specific message div 
-        messageDiv = document.getElementById(uniqueId)
-
-        // messageDiv.innerHTML = "..."
-        //loader(messageDiv)
-
-        try {
-            const response = await fetch('https://uanamaai.onrender.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    prompt: 'Chiedimi con quale lingua parlarti'
-                })
-            })
-
-            clearInterval(loadInterval)
-            messageDiv.innerHTML = " "
-
-            if (response.ok) {
-                const data = await response.json();
-                const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
-
-                typeText(messageDiv, parsedData)
-            } else {
-                const err = await response.text()
-
-                messageDiv.innerHTML = "Something went wrong"
-                alert(err)
-            }
-        } catch (error) {
-            console.error(error);
-        }
+        
     //}, delayInMilliseconds);
+    
+}; 
+
+window.onload = async (event) => {
+
+    var delayInMilliseconds = 1000; //1 second
+    setTimeout(async function() {
+    
+
+    const data = new FormData(form)
+
+    // user's chatstripe
+    //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+
+    // to clear the textarea input 
+    form.reset()
+
+    // bot's chatstripe
+    const uniqueId = generateUniqueId()
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+
+    // to focus scroll to the bottom 
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // specific message div 
+    const messageDiv = document.getElementById(uniqueId)
+
+    // messageDiv.innerHTML = "..."
+    loader(messageDiv)
+
+    try {
+        const response = await fetch('https://uanamaai.onrender.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                prompt: 'Scrivi ciao'
+            })
+        })
+
+        
+
+        clearInterval(loadInterval)
+        messageDiv.innerHTML = " "
+
+        if (response.ok) {
+            const data = await response.json();
+            const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+            typeText(messageDiv, parsedData)
+        } else {
+            const err = await response.text()
+
+            messageDiv.innerHTML = "Something went wrong"
+            alert(err)
+        }
+    } catch (error) {
+        console.error(error);
+    }
+    await delay(5000);
+    
+        
+    }, delayInMilliseconds);
     
 }; 
 
