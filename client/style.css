@@ -161,7 +161,10 @@ ul {
 }
 
 li {
-  float: left;
+  font-family: "Alegreya Sans", sans-serif;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 li a {
