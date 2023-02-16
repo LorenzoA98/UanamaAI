@@ -6,7 +6,7 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 
-window.onload = (event) => {
+window.onload = async (event) => {
 
     var delayInMilliseconds = 1000; //1 second
     const data = new FormData(form)
@@ -31,7 +31,7 @@ window.onload = (event) => {
     loader(messageDiv)
 
     try {
-        const response = fetch('https://uanamaai.onrender.com', {
+        const response = await fetch('https://uanamaai.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,12 +47,12 @@ window.onload = (event) => {
         messageDiv.innerHTML = " "
 
         if (response.ok) {
-            const data = response.json();
+            const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
             typeText(messageDiv, parsedData)
         } else {
-            const err = response.text()
+            const err = await response.text()
 
             messageDiv.innerHTML = "Something went wrong"
             alert(err)
