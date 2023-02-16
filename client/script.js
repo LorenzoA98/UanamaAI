@@ -62,11 +62,55 @@ window.onload = async (event) => {
     } catch (error) {
         console.error(error);
     }
-    /*
+    
     setTimeout(function() {
+        form.reset()
 
+        // bot's chatstripe
+        uniqueId = generateUniqueId()
+        chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+
+        // to focus scroll to the bottom 
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // specific message div 
+        messageDiv = document.getElementById(uniqueId)
+
+        // messageDiv.innerHTML = "..."
+        //loader(messageDiv)
+
+        try {
+            const response = fetch('https://uanamaai.onrender.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    prompt: 'Chiedimi con quale lingua parlarti'
+                })
+            })
+
+            
+
+            clearInterval(loadInterval)
+            messageDiv.innerHTML = " "
+
+            if (response.ok) {
+                const data = response.json();
+                const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+                typeText(messageDiv, parsedData)
+            } else {
+                const err = response.text()
+
+                messageDiv.innerHTML = "Something went wrong"
+                alert(err)
+            }
+        } catch (error) {
+            console.error(error);
+        }
     }, delayInMilliseconds);
-    */
+    
 }; 
 
 function loader(element) {
