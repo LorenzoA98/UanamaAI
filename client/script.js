@@ -10,7 +10,7 @@ let inTypeTest = false
 
 window.onload = async (event) => {
 
-    var delayInMilliseconds = 100; //1 second
+    var delayInMilliseconds = 500; //1 second
 
     const data = new FormData(form)
 
@@ -97,7 +97,7 @@ window.onload = async (event) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    prompt: 'ask me in which language I would like to speak'
+                    prompt: 'can you speak in any language?'
                 })
             })
 
