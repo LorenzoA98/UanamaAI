@@ -30,11 +30,12 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
 
   -ms-overflow-style: none;
   scrollbar-width: none;
 
+  padding-bottom: 20px;
   scroll-behavior: smooth;
 }
 
