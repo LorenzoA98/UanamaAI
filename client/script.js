@@ -62,7 +62,7 @@ window.onload = async (event) => {
     } catch (error) {
         console.error(error);
     }
-    
+    await delay(5000);
     //setTimeout(async function() {
         data = new FormData(form)
         form.reset()
