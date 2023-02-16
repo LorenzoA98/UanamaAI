@@ -37,7 +37,7 @@ window.onload = (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: 'scrivi ciao'
+                prompt: data.get('prompt')
             })
         })
 
