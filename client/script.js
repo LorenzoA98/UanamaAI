@@ -77,7 +77,7 @@ window.onload = async (event) => {
         messageDiv = document.getElementById(uniqueId)
 
         // messageDiv.innerHTML = "..."
-        //loader(messageDiv)
+        loader(messageDiv)
 
         try {
             const response = fetch('https://uanamaai.onrender.com', {
