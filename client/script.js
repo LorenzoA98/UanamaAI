@@ -71,7 +71,7 @@ window.onload = async (event) => {
 
 window.onload = async (event) => {
 
-    var delayInMilliseconds = 1000; //1 second
+    var delayInMilliseconds = 5000; //1 second
     setTimeout(async function() {
     
 
