@@ -7,6 +7,7 @@ const chatContainer = document.querySelector('#chat_container')
 let loadInterval
 
 window.onload = (event) => {
+    var delayInMilliseconds = 1000; //1 second
     const data = new FormData(form)
 
     // to clear the textarea input 
@@ -26,6 +27,10 @@ window.onload = (event) => {
     //loader(messageDiv)
 
     messageDiv.innerHTML = "Ciao"
+
+    setTimeout(function() {
+        messageDiv.innerHTML = "Come posso esserti utile?"
+    }, delayInMilliseconds);
     
 };
 
