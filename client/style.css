@@ -122,9 +122,7 @@ form {
   overflow: hidden;
   bottom: 0;
   background: #131313;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row;
+  border-radius: 10px;
 }
 
 textarea {
