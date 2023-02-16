@@ -29,6 +29,18 @@ window.onload = (event) => {
     messageDiv.innerHTML = "Ciao"
 
     setTimeout(function() {
+        form.reset()
+
+        // bot's chatstripe
+        const uniqueId = generateUniqueId()
+        chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+
+        // to focus scroll to the bottom 
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // specific message div 
+        const messageDiv = document.getElementById(uniqueId)
+
         messageDiv.innerHTML = "Come posso esserti utile?"
     }, delayInMilliseconds);
     
