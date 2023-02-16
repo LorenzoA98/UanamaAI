@@ -64,6 +64,7 @@ window.onload = async (event) => {
     }
     
     //setTimeout(async function() {
+        data = new FormData(form)
         form.reset()
 
         // bot's chatstripe
