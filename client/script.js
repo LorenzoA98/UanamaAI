@@ -9,71 +9,7 @@ let loadInterval
 
 window.onload = async (event) => {
 
-    var delayInMilliseconds = 1000; //1 second
-
-    const data = new FormData(form)
-
-    // user's chatstripe
-    //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
-
-    // to clear the textarea input 
-    form.reset()
-
-    // bot's chatstripe
-    const uniqueId = generateUniqueId()
-    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
-
-    // to focus scroll to the bottom 
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-
-    // specific message div 
-    const messageDiv = document.getElementById(uniqueId)
-
-    // messageDiv.innerHTML = "..."
-    loader(messageDiv)
-
-    try {
-        const response = await fetch('https://uanamaai.onrender.com', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                prompt: 'Scrivi ciao'
-            })
-        })
-
-        
-
-        clearInterval(loadInterval)
-        messageDiv.innerHTML = " "
-
-        if (response.ok) {
-            const data = await response.json();
-            const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
-
-            typeText(messageDiv, parsedData)
-        } else {
-            const err = await response.text()
-
-            messageDiv.innerHTML = "Something went wrong"
-            alert(err)
-        }
-    } catch (error) {
-        console.error(error);
-    }
-    await delay(5000);
-    //setTimeout(async function() {
-        
-    //}, delayInMilliseconds);
-    
-}; 
-
-window.onload = async (event) => {
-
     var delayInMilliseconds = 5000; //1 second
-    setTimeout(async function() {
-    
 
     const data = new FormData(form)
 
@@ -126,9 +62,59 @@ window.onload = async (event) => {
     } catch (error) {
         console.error(error);
     }
-    await delay(5000);
-    
-        
+
+    setTimeout(async function() {
+        const data = new FormData(form)
+
+        // user's chatstripe
+        //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+
+        // to clear the textarea input 
+        form.reset()
+
+        // bot's chatstripe
+        const uniqueId = generateUniqueId()
+        chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+
+        // to focus scroll to the bottom 
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // specific message div 
+        const messageDiv = document.getElementById(uniqueId)
+
+        // messageDiv.innerHTML = "..."
+        loader(messageDiv)
+
+        try {
+            const response = await fetch('https://uanamaai.onrender.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    prompt: 'Scrivi ciao'
+                })
+            })
+
+            
+
+            clearInterval(loadInterval)
+            messageDiv.innerHTML = " "
+
+            if (response.ok) {
+                const data = await response.json();
+                const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+                typeText(messageDiv, parsedData)
+            } else {
+                const err = await response.text()
+
+                messageDiv.innerHTML = "Something went wrong"
+                alert(err)
+            }
+        } catch (error) {
+            console.error(error);
+        }
     }, delayInMilliseconds);
     
 }; 
