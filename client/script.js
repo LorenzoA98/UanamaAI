@@ -6,6 +6,29 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 
+window.onload = (event) => {
+    const data = new FormData(form)
+
+    // to clear the textarea input 
+    form.reset()
+
+    // bot's chatstripe
+    const uniqueId = generateUniqueId()
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+
+    // to focus scroll to the bottom 
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // specific message div 
+    const messageDiv = document.getElementById(uniqueId)
+
+    // messageDiv.innerHTML = "..."
+    loader(messageDiv)
+
+    messageDiv.innerHTML = "Ciao"
+    
+};
+
 function loader(element) {
     element.textContent = ''
 
