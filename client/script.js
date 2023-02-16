@@ -21,10 +21,10 @@ window.onload = async (event) => {
 
     // bot's chatstripe
     const uniqueId = generateUniqueId()
-    //chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
 
     // to focus scroll to the bottom 
-    //chatContainer.scrollTop = chatContainer.scrollHeight;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 
     // specific message div 
     const messageDiv = document.getElementById(uniqueId)
