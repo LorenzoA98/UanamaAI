@@ -120,6 +120,7 @@ form {
   padding: 10px;
   background: #131313;
   border-radius: 15px;
+  bottom: 0;
   display: flex;
   flex-direction: row;
 }
