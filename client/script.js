@@ -37,7 +37,7 @@ window.onload = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: data.get('prompt')
+                prompt: 'Scrivi Ciao'
             })
         })
 
