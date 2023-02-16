@@ -40,7 +40,7 @@ window.onload = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: 'Write Hi'
+                prompt: 'greet me with a hello'
             })
         })
 
