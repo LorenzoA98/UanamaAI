@@ -15,7 +15,8 @@ body {
   width: 100vw;
   max-height: 100vh;
   background: #000000;
-  margin-top: 20px;
+  padding-top: 70px;
+  padding-bottom: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,7 +120,7 @@ form {
   margin: 0 auto;
   padding: 10px;
   background: #131313;
-  border-radius: 15px;
+  border-radius: 20px;
   margin-bottom: 0;
   padding-bottom: 0;
   bottom: 0;
