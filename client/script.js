@@ -23,7 +23,7 @@ window.onload = (event) => {
     const messageDiv = document.getElementById(uniqueId)
 
     // messageDiv.innerHTML = "..."
-    loader(messageDiv)
+    //loader(messageDiv)
 
     messageDiv.innerHTML = "Ciao"
     
