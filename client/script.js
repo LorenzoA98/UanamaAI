@@ -30,7 +30,7 @@ window.onload = async (event) => {
     const messageDiv = document.getElementById(uniqueId)
 
     // messageDiv.innerHTML = "..."
-    //loader(messageDiv)
+    loader(messageDiv)
 
     try {
         const response = await fetch('https://uanamaai.onrender.com', {
@@ -63,7 +63,7 @@ window.onload = async (event) => {
         console.error(error);
     }
     
-    setTimeout(async function() {
+    //setTimeout(async function() {
         form.reset()
 
         // bot's chatstripe
@@ -90,8 +90,6 @@ window.onload = async (event) => {
                 })
             })
 
-            
-
             clearInterval(loadInterval)
             messageDiv.innerHTML = " "
 
@@ -109,7 +107,7 @@ window.onload = async (event) => {
         } catch (error) {
             console.error(error);
         }
-    }, delayInMilliseconds);
+    //}, delayInMilliseconds);
     
 }; 
 
