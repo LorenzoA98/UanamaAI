@@ -12,17 +12,17 @@ window.onload = (event) => {
     const data = new FormData(form)
 
     // user's chatstripe
-    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+    //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
     // to clear the textarea input 
     form.reset()
 
     // bot's chatstripe
     const uniqueId = generateUniqueId()
-    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+    //chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
 
     // to focus scroll to the bottom 
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    //chatContainer.scrollTop = chatContainer.scrollHeight;
 
     // specific message div 
     const messageDiv = document.getElementById(uniqueId)
