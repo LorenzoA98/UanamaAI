@@ -63,7 +63,7 @@ window.onload = async (event) => {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            speak(""+data.bot+"", voices[5], rate, pitch, volume);
+            speak(String(data.bot), voices[5], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
