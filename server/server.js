@@ -49,7 +49,7 @@ app.post('/', async (req, res) => {
     const valueToSpeak = response.data.choices[0].text
     const valueToSpeak1 = new SpeechSynthesisUtterance(valueToSpeak)
 
-    speechSynthesis.speak(valueToSpeak1)
+    useSpeechSynthesis(valueToSpeak1)
     //speak({text:valueToSpeak})
 
     res.status(200).send({
