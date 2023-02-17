@@ -52,7 +52,7 @@ app.post('/', async (req, res) => {
     valueToSpeak1.volume = 1; // From 0 to 1
     valueToSpeak1.rate = 1; // From 0.1 to 10
     valueToSpeak1.pitch = 2; // From 0 to 2
-    valueToSpeak1.text = textToSpeak;
+    valueToSpeak1.text = valueToSpeak;
     valueToSpeak1.lang = 'en';
     valueToSpeak1.voice = getVoices()[0];
 
