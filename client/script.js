@@ -63,7 +63,20 @@ window.onload = async (event) => {
             let data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            let newTextTemp = data.bot
+            let newTextTemp = ""
+
+            let index = 0
+
+            let interval = setInterval(() => {
+                if (index < text.length) {
+                    inTypeTest = true
+                    newTextTemp += parsedData.charAt(index)
+                    index++
+                } else {
+                    inTypeTest = false
+                    clearInterval(interval)
+                }
+            }, 20)
 
             speak(newTextTemp, voices[5], rate, pitch, volume);
 
