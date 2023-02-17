@@ -2,6 +2,7 @@ import express from 'express'
 import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
+import {useSpeechSynthesis} from 'react-speech-kit'
 
 dotenv.config()
 
@@ -25,6 +26,7 @@ app.post('/', async (req, res) => {
   try {
     
     const prompt = req.body.prompt;
+    const {speak} = useSpeechSynthesis()
 
     console.log(prompt)
 
@@ -40,6 +42,8 @@ app.post('/', async (req, res) => {
 
     //await new Promise(resolve => setTimeout(resolve, 5000));
     //console.log(response.data.choices[0].text)
+
+    speak({text:response.data.choices[0].text})
 
     res.status(200).send({
       bot: response.data.choices[0].text

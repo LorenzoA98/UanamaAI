@@ -1,6 +1,6 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
-import {useSpeechSynthesis} from 'react-speech-kit'
+
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
@@ -16,7 +16,7 @@ window.onload = async (event) => {
 
     const data = new FormData(form)
 
-    const {speak} = useSpeechSynthesis()
+    
 
     // user's chatstripe
     //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
@@ -57,7 +57,7 @@ window.onload = async (event) => {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            speak({text:data.bot})
+            
 
             typeText(messageDiv, parsedData)
         } else {
@@ -116,7 +116,6 @@ window.onload = async (event) => {
                 const data = await response.json();
                 const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-                speak({text:data.bot})
 
                 typeText(messageDiv, parsedData)
             } else {
