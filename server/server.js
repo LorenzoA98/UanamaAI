@@ -2,11 +2,11 @@ import express from 'express'
 import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
-import {useSpeechSynthesis} from 'react-speech-kit'
+import pkg from 'react-speech-kit'
+const {useSpeechSynthesis} = pkg
 
 dotenv.config()
 
-const {speak} = useSpeechSynthesis()
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
