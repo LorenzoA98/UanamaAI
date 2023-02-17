@@ -9,6 +9,7 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 let inTypeTest = false
+let inSpeekTextCreation = false
 
 
 window.onload = async (event) => {
@@ -69,11 +70,11 @@ window.onload = async (event) => {
 
             let interval = setInterval(() => {
                 if (index < text.length) {
-                    inTypeTest = true
+                    inSpeekTextCreation = true
                     newTextTemp += parsedData.charAt(index)
                     index++
                 } else {
-                    inTypeTest = false
+                    inSpeekTextCreation = false
                     clearInterval(interval)
                 }
             }, 20)
