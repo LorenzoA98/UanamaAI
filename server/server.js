@@ -45,6 +45,7 @@ app.post('/', async (req, res) => {
     //await new Promise(resolve => setTimeout(resolve, 5000));
     //console.log(response.data.choices[0].text)
 
+    console.log(response.data.choices[0].text)
     const valueToSpeak = response.data.choices[0].text
     const valueToSpeak1 = new SpeechSynthesisUtterance(valueToSpeak)
 
