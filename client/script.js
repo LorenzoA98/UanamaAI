@@ -64,22 +64,11 @@ window.onload = async (event) => {
             let data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            let newTextTemp = ""
+            text = ""
 
-            let index = 0
+            text += String(data.bot)
 
-            let interval = setInterval(() => {
-                if (index < text.length) {
-                    inSpeekTextCreation = true
-                    newTextTemp += parsedData.charAt(index)
-                    index++
-                } else {
-                    inSpeekTextCreation = false
-                    clearInterval(interval)
-                }
-            }, 20)
-
-            speak(newTextTemp, voices[5], rate, pitch, volume);
+            speak(text, voices[5], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
@@ -92,9 +81,11 @@ window.onload = async (event) => {
         console.error(error);
     }
 
+    /*
     while (inTypeTest) {
         await delay(100);
     }
+    */
 
     /*
     setTimeout(async function() {
