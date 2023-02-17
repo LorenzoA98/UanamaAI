@@ -251,8 +251,10 @@ const handleSubmit = async (e) => {
         if (response.ok) {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+            text = ""
 
-            speak("hola coimo estas?", voices[5], rate, pitch, volume);
+            text += String(data.bot)
+            speak(data.bot, voices[5], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
