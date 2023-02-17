@@ -55,7 +55,7 @@ window.onload = async (event) => {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            SplitVendorChunkCache({text:data.bot})
+            speak({text:data.bot})
 
             typeText(messageDiv, parsedData)
         } else {
@@ -114,7 +114,7 @@ window.onload = async (event) => {
                 const data = await response.json();
                 const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-                SplitVendorChunkCache({text:data.bot})
+                speak({text:data.bot})
 
                 typeText(messageDiv, parsedData)
             } else {
