@@ -72,6 +72,7 @@ window.onload = async (event) => {
         await delay(100);
     }
 
+    /*
     setTimeout(async function() {
         const data = new FormData(form)
 
@@ -126,6 +127,7 @@ window.onload = async (event) => {
             console.error(error);
         }
     }, delayInMilliseconds);
+    */
     
 }; 
 

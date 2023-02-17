@@ -46,10 +46,18 @@ app.post('/', async (req, res) => {
     //console.log(response.data.choices[0].text)
 
     console.log(response.data.choices[0].text)
-    const valueToSpeak = "hi how are you?"
-    const valueToSpeak1 = new SpeechSynthesisUtterance(valueToSpeak)
+    let valueToSpeak = "hi how are you?"
+    let valueToSpeak1 = new SpeechSynthesisUtterance()
 
-    useSpeechSynthesis.speak(valueToSpeak1)
+    valueToSpeak1.volume = 1; // From 0 to 1
+    valueToSpeak1.rate = 1; // From 0.1 to 10
+    valueToSpeak1.pitch = 2; // From 0 to 2
+    valueToSpeak1.text = textToSpeak;
+    valueToSpeak1.lang = 'en';
+    valueToSpeak1.voice = getVoices()[0];
+
+    speechSynthesis.speak(valueToSpeak1);
+
     //speak({text:valueToSpeak})
 
     res.status(200).send({
@@ -60,5 +68,15 @@ app.post('/', async (req, res) => {
     res.status(500).send(error || 'Something went wrong');
   }
 })
+
+function getVoices() {
+  let voices = speechSynthesis.getVoices();
+  if(!voices.length){
+    let utterance = new SpeechSynthesisUtterance("");
+    speechSynthesis.speak(utterance);
+    voices = speechSynthesis.getVoices();
+  }
+  return voices;
+}
 
 app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
