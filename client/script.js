@@ -220,6 +220,10 @@ const handleSubmit = async (e) => {
 
     const data = new FormData(form)
 
+    let voices = getVoices();
+    let rate = 1, pitch = 2, volume = 1;
+    let text = "";
+
     // user's chatstripe
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
@@ -257,17 +261,7 @@ const handleSubmit = async (e) => {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            let valueToSpeak = "hi how are you?"
-            let valueToSpeak1 = new SpeechSynthesisUtterance()
-
-            valueToSpeak1.volume = 1; // From 0 to 1
-            valueToSpeak1.rate = 1; // From 0.1 to 10
-            valueToSpeak1.pitch = 2; // From 0 to 2
-            valueToSpeak1.text = valueToSpeak;
-            valueToSpeak1.lang = 'en';
-            valueToSpeak1.voice = getVoices()[0];
-
-            speechSynthesis.speak(valueToSpeak1);
+            speak("hola coimo estas?", voices[5], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
