@@ -46,7 +46,7 @@ app.post('/', async (req, res) => {
     //console.log(response.data.choices[0].text)
 
     console.log(response.data.choices[0].text)
-    const valueToSpeak = response.data.choices[0].text
+    const valueToSpeak = "hi how are you?"
     const valueToSpeak1 = new SpeechSynthesisUtterance(valueToSpeak)
 
     useSpeechSynthesis(valueToSpeak1)
