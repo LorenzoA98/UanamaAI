@@ -1,5 +1,7 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
+import pkg from 'react-speech-kit'
+const {useSpeechSynthesis} = pkg
 
 
 const form = document.querySelector('form')
@@ -226,14 +228,24 @@ const handleSubmit = async (e) => {
             })
         })
 
-        
-
         clearInterval(loadInterval)
         messageDiv.innerHTML = " "
 
         if (response.ok) {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+            let valueToSpeak = "hi how are you?"
+            let valueToSpeak1 = new SpeechSynthesisUtterance()
+
+            valueToSpeak1.volume = 1; // From 0 to 1
+            valueToSpeak1.rate = 1; // From 0.1 to 10
+            valueToSpeak1.pitch = 2; // From 0 to 2
+            valueToSpeak1.text = valueToSpeak;
+            valueToSpeak1.lang = 'en';
+            valueToSpeak1.voice = getVoices()[0];
+
+            speechSynthesis.speak(valueToSpeak1);
 
             typeText(messageDiv, parsedData)
         } else {
@@ -245,8 +257,16 @@ const handleSubmit = async (e) => {
     } catch (error) {
         console.error(error);
     }
+}
 
-    
+function getVoices() {
+    let voices = speechSynthesis.getVoices();
+    if(!voices.length){
+      let utterance = new SpeechSynthesisUtterance("");
+      speechSynthesis.speak(utterance);
+      voices = speechSynthesis.getVoices();
+    }
+    return voices;
 }
 
 form.addEventListener('submit', handleSubmit)
