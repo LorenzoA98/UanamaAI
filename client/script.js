@@ -18,6 +18,10 @@ window.onload = async (event) => {
 
     const data = new FormData(form)
 
+    let voices = getVoices();
+    let rate = 1, pitch = 2, volume = 1;
+    let text = "";
+
     
 
     // user's chatstripe
@@ -58,6 +62,8 @@ window.onload = async (event) => {
         if (response.ok) {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+            speak(data.bot, voices[5], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
@@ -259,6 +265,27 @@ const handleSubmit = async (e) => {
     }
 }
 
+form.addEventListener('submit', handleSubmit)
+form.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+        handleSubmit(e)
+    }
+})
+
+function speak(text, voice, rate, pitch, volume) {
+    // create a SpeechSynthesisUtterance to configure the how text to be spoken 
+    let speakData = new SpeechSynthesisUtterance();
+    speakData.volume = volume; // From 0 to 1
+    speakData.rate = rate; // From 0.1 to 10
+    speakData.pitch = pitch; // From 0 to 2
+    speakData.text = text;
+    speakData.lang = 'en';
+    speakData.voice = voice;
+    
+    // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
+    speechSynthesis.speak(speakData);
+}
+
 function getVoices() {
     let voices = speechSynthesis.getVoices();
     if(!voices.length){
@@ -268,10 +295,3 @@ function getVoices() {
     }
     return voices;
 }
-
-form.addEventListener('submit', handleSubmit)
-form.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        handleSubmit(e)
-    }
-})
