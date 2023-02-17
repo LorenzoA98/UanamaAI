@@ -14,7 +14,7 @@ let inSpeekTextCreation = false
 
 window.onload = async (event) => {
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
 
     var delayInMilliseconds = 500; //1 second
 
