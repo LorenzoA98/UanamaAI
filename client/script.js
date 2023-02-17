@@ -16,6 +16,8 @@ window.onload = async (event) => {
 
     const data = new FormData(form)
 
+    const {speak} = useSpeechSynthesis()
+
     // user's chatstripe
     //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
