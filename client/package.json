@@ -12,6 +12,7 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "react-speech-kit": "^3.0.1"
+    "react-speech-kit": "^3.0.1",
+    "react-speech-recognition": "^3.10.0"
   }
 }
