@@ -8,7 +8,6 @@ const chatContainer = document.querySelector('#chat_container')
 let loadInterval
 let inTypeTest = false
 
-const {speak} = useSpeechSynthesis()
 
 window.onload = async (event) => {
 
