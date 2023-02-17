@@ -14,6 +14,7 @@ let inSpeekTextCreation = false
 
 window.onload = async (event) => {
 
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     var delayInMilliseconds = 500; //1 second
 
@@ -64,11 +65,7 @@ window.onload = async (event) => {
             let data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            text = ""
-
-            text += String(data.bot)
-
-            speak(text, voices[5], rate, pitch, volume);
+            speak(data.bot, voices[0], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
@@ -251,10 +248,8 @@ const handleSubmit = async (e) => {
         if (response.ok) {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
-            text = ""
 
-            text += String(data.bot)
-            speak(data.bot, voices[5], rate, pitch, volume);
+            speak(data.bot, voices[0], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
@@ -282,7 +277,7 @@ function speak(text, voice, rate, pitch, volume) {
     speakData.rate = rate; // From 0.1 to 10
     speakData.pitch = pitch; // From 0 to 2
     speakData.text = text;
-    speakData.lang = 'en';
+    speakData.lang = 'it';
     speakData.voice = voice;
     
     // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
