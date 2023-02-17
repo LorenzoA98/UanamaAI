@@ -60,7 +60,7 @@ window.onload = async (event) => {
         messageDiv.innerHTML = " "
 
         if (response.ok) {
-            const data = await response.json();
+            let data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
             let newTextTemp = data.bot
