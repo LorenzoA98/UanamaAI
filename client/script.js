@@ -1,5 +1,6 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
+import {useSpeechSynthesis} from 'react-speech-kit'
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
@@ -9,6 +10,7 @@ let inTypeTest = false
 
 
 window.onload = async (event) => {
+
 
     var delayInMilliseconds = 500; //1 second
 
@@ -52,6 +54,8 @@ window.onload = async (event) => {
         if (response.ok) {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+            SplitVendorChunkCache({text:data.bot})
 
             typeText(messageDiv, parsedData)
         } else {
@@ -109,6 +113,8 @@ window.onload = async (event) => {
             if (response.ok) {
                 const data = await response.json();
                 const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+
+                SplitVendorChunkCache({text:data.bot})
 
                 typeText(messageDiv, parsedData)
             } else {
