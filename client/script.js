@@ -249,7 +249,7 @@ const handleSubmit = async (e) => {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            speak(data.bot, voices[2], rate, pitch, volume);
+            speak(data.bot, voices[3], rate, pitch, volume);
 
             typeText(messageDiv, parsedData)
         } else {
