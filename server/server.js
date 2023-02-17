@@ -6,6 +6,8 @@ import {useSpeechSynthesis} from 'react-speech-kit'
 
 dotenv.config()
 
+const {speak} = useSpeechSynthesis()
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -26,7 +28,7 @@ app.post('/', async (req, res) => {
   try {
     
     const prompt = req.body.prompt;
-    const {speak} = useSpeechSynthesis()
+    
 
     console.log(prompt)
 
