@@ -57,7 +57,8 @@ window.onload = async (event) => {
             const data = await response.json();
             const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-            
+            const valueToSpeak = data.bot
+            speak({text:valueToSpeak})
 
             typeText(messageDiv, parsedData)
         } else {
