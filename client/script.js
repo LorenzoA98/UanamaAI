@@ -277,7 +277,7 @@ function speak(text, voice, rate, pitch, volume) {
     speakData.rate = rate; // From 0.1 to 10
     speakData.pitch = pitch; // From 0 to 2
     speakData.text = text;
-    speakData.lang = 'it-IT';
+    speakData.lang = 'it';
     speakData.voice = voice;
     
     // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
